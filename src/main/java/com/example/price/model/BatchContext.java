@@ -26,6 +26,7 @@ public class BatchContext {
         }
     }
 
+    //ADDED FOR CONSUMER TO VIEW PRICES EVEN BEFORE THE BATCH IS COMPLETED
     public Consumer<PriceRecord> updatePrice() {
         return priceRecord -> LastPriceServiceImpl.globalPrices
                 .computeIfAbsent(priceRecord.getId(), id -> priceRecord);
